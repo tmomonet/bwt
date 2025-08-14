@@ -6,6 +6,7 @@ def encode(s):
         results.append("".join(lst))  # append a *copy* so future changes don't overwrite
     results = sorted(results)
     lastCol = ""
+    index = None
     for i, r in enumerate(results):
         lastCol += results[i][-1]
         if r == s:
@@ -15,6 +16,8 @@ def encode(s):
     
 
 def decode(s, n):
+    if not s:
+        return ""
     lst = list(s)
     lengthS = len(lst)
     results =  [""] * lengthS
